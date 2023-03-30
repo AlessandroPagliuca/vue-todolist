@@ -60,7 +60,7 @@ createApp({
             this.listaSpesa.splice(index, 1);
         },
         completedTask(index){
-            this.listaSpesa[index].done = true;
+            this.listaSpesa[index].done = !this.listaSpesa[index].done;
         }
     },
     mounted(){
