@@ -1,0 +1,11 @@
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+ul li{
+    cursor: pointer;
+}
+/* al click sbarrare la task completata */
+.completed {
+    text-decoration: line-through;
+  }
