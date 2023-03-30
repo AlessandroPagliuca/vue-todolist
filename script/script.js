@@ -40,8 +40,6 @@ createApp({
                 name:'',
                 done:false
             },
-            errorMessage:'Inserisci valori validi',
-            completed: 'completed',
         }
     },
     methods:{

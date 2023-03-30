@@ -8,20 +8,22 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Vue To Do List</title>
 </head>
-<body>
+<body class="bg-dark">
 
     <div id="app">
-        <div class="container">
-            <div class=" card  d-flex flex-column align-items-center my-5">
-                <div class=" m-4">
-                    <h2>Your list</h2>
-                    <input type="text" name="listaSpesa" id="listaSpesa" v-model="newTask.name" @keyup.enter="insertTask">
-                    <button class="btn btn-primary mx-2" @click.stop="insertTask">Invia</button>
+        <div class="container d-flex justify-content-center">
+            <div class="card d-flex flex-column align-items-center my-5">
+                <div class="m-4">
+                    <h2>To do list</h2>
+                    <input type="text" v-model="newTask.name" @keyup.enter="insertTask">
+                    <button class="btn btn-primary mx-2" @click.stop="insertTask">+</button>
                 </div>
-                <ul v-if="listaSpesa.length > 0">
-                    <li class=" alert alert-success " v-for="(item, index) in listaSpesa" :key="index" @click="completedTask(index)" :class="{ completed: item.done }">
-                        <span class="pe-5">{{item.name}}</span>
-                        <button class="btn btn-danger ms-5" @click.stop="deleteList(index)">x</button>
+                <ul class="d-flex flex-column align-items-center w-100 p-0" v-if="listaSpesa.length > 0">
+                    <li class="w-100 p-3" v-for="(item, index) in listaSpesa" :key="index" @click="completedTask(index)">
+                        <div class="d-flex flex-row justify-content-between">
+                            <span :class="{ 'completed': item.done }">{{item.name}}</span>
+                            <button class="btn btn-danger ms-5" @click.stop="deleteList(index)">x</button>
+                        </div>
                     </li>
                 </ul>
                 <h3 v-else>La lista è vuota</h3>
